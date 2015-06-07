@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper,utf8x, combine]{report}
+\usepackage [english,frenchb]{babel} 
+\usepackage{comment}
+
+% Pour pouvoir utiliser  les accents
+%\usepackage[combine]{ucs}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp, lmodern}
+\usepackage[textwidth=7.10in]{geometry}
+
+% Pour pouvoir inclure des images
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{filecontents}
+
+% On définit le chemin par défaut des images 
+\graphicspath{{images/}}
+\usepackage[margin=10pt,font=small,labelfont=bf]{caption}
+
+\usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue, unicode]{hyperref}% Pour avoir de belles urls
+\usepackage {geometry}
+
+% Pour mettre du code source
+\usepackage {listings}
+% Pour pouvoir passer en paysage
+\usepackage{lscape}
+\usepackage[compact]{titlesec}
+\titlespacing{\chapter}{0pt}{-50pt}{240pt}
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{20pt}{0pt}{0pt}
+% Pour pouvoir faire plusieurs colonnes
+\usepackage {multicol}
+% Pour créer un index
+\usepackage{makeidx}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{array}
+\makeindex
+
+% Pour les entetes de page
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhf{}
+%\fancyheadoffset{\textwidth}
+
+\fancyhead[L]{\includegraphics[width=2.6cm]{costech.png}}
+\fancyhead[R]{\includegraphics[width=3cm]{utc.jpg}}
+\fancyhead[C]{Rapport de stage TN10 - Jonathan DEKHTIAR\\}
+%\fancyfoot[C]{\chaptername~\thechapter\\}
+\fancyfoot[C]{\leftmark\\}
+\fancyfoot[R]{Page : \thepage /\pageref*{LastPage}\\}
+
+\fancypagestyle{plain}
+
+\setlength\headheight{3cm} 
+
+% Pour l'interligne de 1.5
+%\usepackage {setspace}
+% Pour les marges de la page
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
+
+\parskip=20pt %% distance entre § (paragraphe)
+\sloppy %% respecter toujours la marge de droite 
+
+% Pour les pénalités :
+\interfootnotelinepenalty=150 %note de bas de page
+
+\widowpenalty=10000 % empeche au maximum la coupure avant la derniere ligne
+\clubpenalty=10000  % empeche au maximum la coupure apres la premiere ligne
+\raggedbottom   
+
+
+%Pour la longueur de l'indentation des paragraphes
+\setlength{\parindent}{0cm}
+
+\begingroup
+\makeatletter
+% Redefine the \chapter* header macro to remove vertical space
+\def\@makeschapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 1\p@
+  }}
+\def\@makechapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 1\p@
+  }}
+  
+\makeatother
+
+\bibliographystyle{IEEEtran}
+
+\begin{document}
+
+\input{couverture}
+
+
+\tableofcontents
+\listoffigures
+\clearpage
+
+% Pour avoir un interligne de 1,5
+%\begin{onehalfspace}
+
+\input{remerciements}
+
+\include{Intro}
+
+\include{Parties/DeltaCAD}
+
+\include{Parties/Stage}
+
+\include{Parties/Metis}
+
+\chapter{La Reconnaissance de formes.}
+\input{Parties/ShapeMatching}
+
+\chapter{L'Apprentissage Automatique.}
+\input{Parties/MachineLearning}
+
+\clearpage
+
+\chapter{Les Shock Graphs}
+\input{Parties/ShockGraphs}
+\clearpage
+
+\chapter{Shape Learner - Plugin METIS}
+\input{Parties/ShapeLearner/ShapeLearner-1}
+\input{Parties/ShapeLearner/ShapeLearner-2}
+\input{Parties/ShapeLearner/ShapeLearner-3}
+\input{Parties/ShapeLearner/ShapeLearner-4}
+\input{Parties/ShapeLearner/ShapeLearner-5}
+\clearpage
+
+\include{Conclusion}
+
+% Pour finir l'interligne de 1,5
+%\end{onehalfspace}
+
+%----------------------------------------
+% Pour la bibliographie
+%----------------------------------------
+% Citer tous les ouvrages/références
+\nocite{*}
+
+\bibliography{IEEEabrv,biblio}
+
+\printindex
+
+\appendix
+
+\pagebreak
+
+\chapter*{Rédaction du Rapport en langage LaTeX}
+\markboth{Langage LaTeX}{}
+\addcontentsline{toc}{chapter}{Rédaction du Rapport en langage LaTeX}
+Ce rapport a été entièrement rédigé en \href{http://fr.wikipedia.org/wiki/LaTeX}{\textbf{LaTeX}}. 
+
+Les sources sont disponibles et téléchargeables sur Github à l'adresse suivante :\\
+\href{https://github.com/DEKHTIARJonathan/Rapport-TN10}{\textbf{https://github.com/DEKHTIARJonathan/Rapport-TN10}}. 
+
+\end{document}
