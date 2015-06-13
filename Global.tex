@@ -16,6 +16,13 @@
 \usepackage{pdfpages}
 \usepackage{filecontents}
 
+
+%Pour faire des encadrés
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+\newtcbtheorem{Define}{Définition}%
+{breakable,colframe=red!50!white!50!black,fonttitle=\bfseries}{}
+
 % On définit le chemin par défaut des images 
 \graphicspath{{images/}}
 \usepackage[margin=10pt,font=small,labelfont=bf]{caption}
@@ -47,10 +54,10 @@
 \fancyhf{}
 %\fancyheadoffset{\textwidth}
 
-\fancyhead[L]{\includegraphics[width=2.6cm]{costech.png}}
-\fancyhead[R]{\includegraphics[width=3cm]{utc.jpg}}
-\fancyhead[C]{Rapport de stage TN10 - Jonathan DEKHTIAR\\}
-%\fancyfoot[C]{\chaptername~\thechapter\\}
+\fancyhead[L]{\includegraphics[height=1cm]{costech.png}}
+\fancyhead[R]{\includegraphics[height=1cm]{utc.jpg}}
+\fancyhead[C]{Rédaction Bibliographique de fin d'études\vspace{2mm}}
+\fancyfoot[L]{Jonathan DEKHTIAR}
 \fancyfoot[C]{\leftmark\\}
 \fancyfoot[R]{Page : \thepage /\pageref*{LastPage}\\}
 
@@ -61,7 +68,7 @@
 % Pour l'interligne de 1.5
 %\usepackage {setspace}
 % Pour les marges de la page
-\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
+\geometry{a4paper, top=2.5cm, bottom=2cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
 
 \parskip=20pt %% distance entre § (paragraphe)
 \sloppy %% respecter toujours la marge de droite 
@@ -113,35 +120,13 @@
 % Pour avoir un interligne de 1,5
 %\begin{onehalfspace}
 
-\input{remerciements}
+\input{SujetBC01}
 
 \include{Intro}
 
-\include{Parties/DeltaCAD}
+\include{Definitions}
 
-\include{Parties/Stage}
-
-\include{Parties/Metis}
-
-\chapter{La Reconnaissance de formes.}
-\input{Parties/ShapeMatching}
-
-\chapter{L'Apprentissage Automatique.}
-\input{Parties/MachineLearning}
-
-\clearpage
-
-\chapter{Les Shock Graphs}
-\input{Parties/ShockGraphs}
-\clearpage
-
-\chapter{Shape Learner - Plugin METIS}
-\input{Parties/ShapeLearner/ShapeLearner-1}
-\input{Parties/ShapeLearner/ShapeLearner-2}
-\input{Parties/ShapeLearner/ShapeLearner-3}
-\input{Parties/ShapeLearner/ShapeLearner-4}
-\input{Parties/ShapeLearner/ShapeLearner-5}
-\clearpage
+\include{Parties/LesLimites}
 
 \include{Conclusion}
 
