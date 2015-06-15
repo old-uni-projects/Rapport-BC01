@@ -42,4 +42,5 @@ cleanup.sh
 docs/*
 !SAP_AllTransactionCode.pdf
 !couverture.pdf
+!sujet.pdf
 !Rapport de Stage - JONATHAN DEKHTIAR - TN09 A13.pdf
