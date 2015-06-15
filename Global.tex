@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper,utf8x, combine]{report}
 \usepackage [english,frenchb]{babel} 
 \usepackage{comment}
+\usepackage{newclude}
 
 % Pour pouvoir utiliser  les accents
 %\usepackage[combine]{ucs}
@@ -15,6 +16,10 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{filecontents}
+
+%Pour faire de jolies citations encadrées
+\usepackage{epigraph}
+
 
 
 %Pour faire des encadrés
@@ -110,6 +115,16 @@
 
 \begin{document}
 
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
 \input{Couverture}
 
 
@@ -124,7 +139,11 @@
 
 \include{Intro}
 
-\include{Parties/LesLimites}
+\chapter{La prévention des risques majeurs}
+\include*{Parties/Prevention}
+
+\chapter{Les limites de la concertation.}
+\include*{Parties/LesLimites}
 
 \include{Conclusion}
 
