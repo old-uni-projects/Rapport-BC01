@@ -1,4 +1,6 @@
 \documentclass[12pt,a4paper,utf8x, combine]{report}
+\usepackage{fix-cm}
+
 \usepackage [english,frenchb]{babel} 
 \usepackage{comment}
 \usepackage{newclude}
@@ -8,8 +10,9 @@
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{times} 
 \usepackage{textcomp, lmodern}
-\usepackage[textwidth=7.10in]{geometry}
+\usepackage[textwidth=16cm]{geometry}
 
 % Pour pouvoir inclure des images
 \usepackage{float}
@@ -30,7 +33,7 @@
 
 % On définit le chemin par défaut des images 
 \graphicspath{{images/}}
-\usepackage[margin=10pt,font=small,labelfont=bf]{caption}
+\usepackage[margin=12pt,labelfont=bf]{caption}
 
 \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue, unicode]{hyperref}% Pour avoir de belles urls
 \usepackage {geometry}
@@ -73,8 +76,7 @@
 % Pour l'interligne de 1.5
 %\usepackage {setspace}
 % Pour les marges de la page
-\geometry{a4paper, top=2.5cm, bottom=2cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
-
+\geometry{a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm, marginparwidth=2cm}
 \parskip=20pt %% distance entre § (paragraphe)
 \sloppy %% respecter toujours la marge de droite 
 
@@ -111,8 +113,6 @@
   
 \makeatother
 
-
-
 \begin{document}
 
 \makeatletter
@@ -142,7 +142,7 @@
 \chapter{La prévention des risques majeurs}
 \include*{Parties/Prevention}
 
-\chapter{Les limites de la concertation.}
+\chapter{La concertation, solution ou mirage ?}
 \include*{Parties/LesLimites}
 
 \include{Conclusion}
